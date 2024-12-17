@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main-content">
+      <h1 class="main-content-element">Check The Weather</h1>
+      <h2 class="main-content-element">Choose any place in the world</h2>
+      <p class="main-content-element">Try it!</p>
+      <div class="input-div">
+        <input
+          type="text"
+          class="input-field"
+          class="main-content-element"
+          placeholder="enter a location"
+        />
+        <button type="submit" class="submit-btn">Check</button>
+      </div>
+    </div>
+    <div class="weather-data-container">
+        <div class="weather-data">
+        <h4 class="city-name">Lorem Ipsum</h4>
+        <p class="forecast">Lorem Ipsum</p>
+        <p class="temperature">Lorem Ipsum</p>
+        </div>
+        <div class="weather-icon-div">
+            <img src="" class="weather-icon"/>
+        </div>
+    </div>
+    <div id="openweathermap-widget-1"></div>
+    <script src="//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
+    <script>
+      window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
+      window.myWidgetParam.push({
+        id: 1,
+        cityid: "6174041",
+        appid: "8bbd3a9f36ab4b15ef2fd90f307ec5f8",
+        units: "metric",
+        containerid: "openweathermap-widget-1",
+      });
+      (function () {
+        var script = document.createElement("script");
+        script.async = true;
+        script.charset = "utf-8";
+        script.src =
+          "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(script, s);
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+:root {
+    --weather-app-bg-color-1: rgb(246, 235, 19)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+
+body {
+    height: 100vh;
+    background-image: url('img/pexels-pixabay-531756.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+  
+
+.main-content {
+    width: fit-content;
+    margin: 100px auto 30px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.main-content h1{
+    font-size: 5rem;
+    padding: 10px 20px 0 20px;
+}
+
+.main-content h2{
+    font-size: 1.7rem;
+}
+
+.main-content p{
+    font-size: 1.3rem;
+}
+
+.main-content-element {
+    padding: 0px 20px;
+    margin: 30px auto;
+    width: fit-content;
+}
+
+.input-div {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.input-div button{
+    margin-left: 10px;
+}
+
+.weather-data-container{
+    display: flex;
+    width: fit-content;
+    margin: 30px auto;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.weather-data-container h4, p{
+    padding: 10px 10px 0px;
+}
+
+.weather-data-container .temperature{
+    padding: 10px;
+}
+
+.weather-data {
+    display: flex;
+    flex-direction: column;
+}
+
+.weather-icon-div {
+    background-color: rgb(129, 129, 126);
+    border-radius: 0px 5px 5px 0px;
+}
+
+.weather-icon {
+    height: 100px;
+    width: 100px;
+}
+
+#openweathermap-widget-1{
+    width: fit-content;
+    margin: 0px auto;
+}
