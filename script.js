@@ -1,9 +1,13 @@
+// IMPORTS
+
+import { renderDaysWeather } from "./render.js";
+
 const input = document.querySelector('.input-field');
 const submitBtn = document.querySelector('.submit-btn');
 const cityName = document.querySelector('.city-name');
-const forecast = document.querySelector('.forecast');
-const temperature = document.querySelector('.temperature');
-const weatherIcon = document.querySelector('.weather-icon');
+const todaysForecast = document.querySelector('.forecast');
+const todaysTemperature = document.querySelector('.temperature');
+const todaysWeatherIcon = document.querySelector('.weather-icon');
 
 const fetchWeather = async () => {
     console.log('fetching weather...')
@@ -25,13 +29,17 @@ const fetchWeather = async () => {
         const icon = data.list[0].weather[0].icon;
         const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
         
-        cityName.textContent = cityNameData;
-        forecast.textContent = `Current Conditions: ${forecastData}`;
-        temperature.textContent = `Temperature: ${temperatureData} degrees C`;
-        weatherIcon.src = iconUrl;
+        cityName.textContent = `Five Day Forecast for ${cityNameData}`;
+        todaysForecast.textContent = `Current Conditions: ${forecastData}`;
+        todaysTemperature.textContent = `Temperature: ${temperatureData} degrees C`;
+        todaysWeatherIcon.src = iconUrl;
 
         const fiveDayWeather = data.list.filter(obj => obj.dt_txt.slice(obj.dt_txt.indexOf(' ')) === ' 03:00:00')
-        console.log(fiveDayWeather)
+
+        console.log(fiveDayWeather);
+
+        renderDaysWeather(fiveDayWeather);
+
     }
     catch (error){
         console.error(error);
