@@ -1,6 +1,7 @@
 // IMPORTS
 
 import { renderDaysWeather } from "./render.js";
+import { getForecast } from "./utility.js";
 
 const input = document.querySelector('.input-field');
 const submitBtn = document.querySelector('.submit-btn');
@@ -22,7 +23,9 @@ const fetchWeather = async () => {
             throw new Error(`Error: ${response.statusText}`);
         }
         const data = await response.json()
-        
+
+        // console.log(data)
+    
         const cityNameData = data.city.name;
         const forecastData = data.list[0].weather[0].description;
         const temperatureData = data.list[0].main.temp;
@@ -36,9 +39,11 @@ const fetchWeather = async () => {
 
         const fiveDayWeather = data.list.filter(obj => obj.dt_txt.slice(obj.dt_txt.indexOf(' ')) === ' 03:00:00')
 
-        console.log(fiveDayWeather);
+        // console.log(fiveDayWeather);
 
         renderDaysWeather(fiveDayWeather);
+
+        console.log(getForecast(data))
 
     }
     catch (error){
