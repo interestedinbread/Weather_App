@@ -1,5 +1,6 @@
 // IMPORTS
 import { getForecast } from "./utility.js";
+import { submitBtn, input } from "./dom.js";
 
 // get weather data from open weather api
 const fetchWeather = async () => {
