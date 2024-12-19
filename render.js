@@ -12,12 +12,14 @@ export const renderForecast = (data, fiveDayWeather) => {
 
     // render todays weather
 
+    // select current weather data from JSON data
     const cityNameData = data.city.name;
     const forecastData = data.list[0].weather[0].description;
     const temperatureData = data.list[0].main.temp;
     const icon = data.list[0].weather[0].icon;
     const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
-            
+    
+    // assign selected data to DOM elements
     cityName.textContent = `Five Day Forecast for ${cityNameData}`;
     todaysForecast.textContent = `Current Conditions: ${forecastData}`;
     todaysTemperature.textContent = `Temperature: ${temperatureData} degrees C`;
@@ -25,7 +27,7 @@ export const renderForecast = (data, fiveDayWeather) => {
 
     // render 5 day forecast
 
-    arr.forEach((obj,index) => {
+    fiveDayWeather.forEach((obj,index) => {
         const day = getWeekDay(index);
         const date = (dateObj.getDate())+index+1;
         const temperature = obj.main.temp;
@@ -43,13 +45,4 @@ export const renderForecast = (data, fiveDayWeather) => {
         `
         weatherDataContainer.append(dayForecastContainer)
     })
-}
-
-// this function uses the date obj to get the date of the week for each day in the 5 day forecast
-const getWeekDay = (index) => {
-    let day = dateObj.getDay()+index+1;
-    if(day > 6){
-        day -= 7;
-    }
-    return daysOfWeek[day];
 }
