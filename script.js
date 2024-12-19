@@ -1,14 +1,16 @@
 // IMPORTS
-
 import { getForecast } from "./utility.js";
 
+// get weather data from open weather api
 const fetchWeather = async () => {
     console.log('fetching weather...')
 
+    // define details of API call
     const city = input.value;
     const apiKey = '8bbd3a9f36ab4b15ef2fd90f307ec5f8'
     const url = `http://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`
 
+    //  use async await to fetch data
     try {
         const response = await fetch(url);
         if(!response.ok){
@@ -16,6 +18,7 @@ const fetchWeather = async () => {
         }
         const data = await response.json()
 
+    // pass JSON data to utility function to extract desired forecast data
         getForecast(data)
 
     }
