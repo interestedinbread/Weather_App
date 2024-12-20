@@ -104,7 +104,7 @@ const extractDates = (list) => {
     const [month, day] = date.split("-");
     const monthAbbr = months[parseInt(month) - 1];
     return [monthAbbr, day];
-  }).slice(1,6);
+  });
 };
 
 // this function should get high and low temperatures for each day of the 5 day forecast

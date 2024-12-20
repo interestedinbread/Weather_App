@@ -90,7 +90,7 @@ body {
 .weather-data {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 25px 100px 25px;
+    grid-template-rows: 25px 90px 25px;
     padding-top: 5px;
 }
 
