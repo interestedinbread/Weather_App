@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+
+    <!-- container for main title and input -->
     <div class="main-content">
       <h1 class="main-content-element">Check The Weather</h1>
       <h2 class="main-content-element">Choose any place in the world</h2>
@@ -22,20 +24,26 @@
         <button type="submit" class="submit-btn">Check</button>
       </div>
     </div>
+    <!-- end of container for main title and input -->
+
+    <!-- container for weather forecast -->
     <div class="weather-data-container">
+        <div class="weather-header-container">
+        <h4 class="city-name"></h4>
+        </div>
         <div class="weather-data">
-        <h4 class="city-name">Lorem Ipsum</h4>
-        <p class="day">Lorem Ipsum</p>
-        <p class="month">Lorem Ipsum</p>
-        <p class="date">Lorem Ipsum</p>
-        <p class="forecast">Lorem Ipsum</p>
-        <p class="temperature">Lorem Ipsum</p>
-        </div>
-        <div class="weather-icon-div">
-            <img src="" class="weather-icon"/>
-        </div>
+          <p class="date"></p>
+            <div class="todays-weather-icon-div">
+              <img src="" class="todays-weather-icon"/>
+            </div>
+          <p class="temperature"></p>
+          <p class="forecast"></p>
+        </div> 
     </div>
-    <div id="openweathermap-widget-1"></div>
+    <!-- end of container for weather forecast -->
+
+    <!-- weather widget from Open Weather -->
+    <!-- <div id="openweathermap-widget-1"></div>
     <script src="//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js"></script>
     <script>
       window.myWidgetParam ? window.myWidgetParam : (window.myWidgetParam = []);
@@ -55,6 +63,7 @@
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(script, s);
       })();
-    </script>
+    </script> -->
+    <!-- end of weather widget from Open Weather -->
   </body>
 </html>

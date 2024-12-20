@@ -1,5 +1,7 @@
+// IMPORTS
 import { renderForecast } from "./render.js";
 
+// DATE OBJ AND DATE ARRAYS
 const dateObj = new Date();
 const daysOfWeek = [
   "Sunday",
@@ -10,7 +12,6 @@ const daysOfWeek = [
   "Friday",
   "Saturday",
 ];
-
 const months = [
   "Jan",
   "Feb",
@@ -37,7 +38,7 @@ export const getForecast = (data) => {
   // select today's weather data from JSON data
   const cityNameData = data.city.name;
   const descriptionData = data.list[0].weather[0].description;
-  const temperatureData = data.list[0].main.temp;
+  const temperatureData = parseInt(data.list[0].main.temp);
   const icon = data.list[0].weather[0].icon;
   const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
@@ -57,6 +58,7 @@ export const getForecast = (data) => {
 
   // get dates for 5 day forecast
   const dateArr = extractDates(data.list);
+  console.log(dateArr);
 
   // this line converts the 40 entry list into 5. One for each day of the forecast. This will be an imperfect forecast starting point to refine later.
   const fiveDayWeather = data.list.filter(
@@ -67,9 +69,8 @@ export const getForecast = (data) => {
   fiveDayWeather.forEach((obj, index) => {
     // extract data for each day
     const day = getWeekDay(index);
-    const month = dateArr[index][0];
-    const date = dateArr[index][1];
-    const temperature = obj.main.temp;
+    const date = `${dateArr[index][0]} ${dateArr[index][1]}`;
+    const temperature = parseInt(obj.main.temp);
     const description = obj.weather[0].description;
     const icon = `http://openweathermap.org/img/wn/${obj.weather[0].icon}@2x.png`;
     
@@ -83,6 +84,8 @@ export const getForecast = (data) => {
       temp: temperature,
       icon: icon,
     };
+
+    // console.log(forecastObj);
 
     // push obj to arr
     forecastArr.push(forecastObj);
@@ -101,7 +104,7 @@ const extractDates = (list) => {
     const [month, day] = date.split("-");
     const monthAbbr = months[parseInt(month) - 1];
     return [monthAbbr, day];
-  });
+  }).slice(1,6);
 };
 
 // this function should get high and low temperatures for each day of the 5 day forecast
