@@ -102,7 +102,7 @@ body {
 
 .weather-data .forecast {
     padding-left: 20px;
-    margin-top: -10px;
+    margin-top: -5px;
     font-weight: 600;
 }
 
@@ -113,17 +113,17 @@ body {
 }
 
 .todays-weather-icon-div {
-    overflow: hidden;
+    
     position: relative;
     height: 75px;
 }
 
 .todays-weather-icon {
     position: absolute;
-    top: -10px;
-    left: 0px;
-    height: 120px;
-    width: 120px;
+    top: 10px;
+    left: 30px;
+    height: 85px;
+    width: 85px;
     display: block;
 }
 
@@ -150,8 +150,11 @@ body {
 }
 
 .weather-icon {
-    height: 75px;
-    width: 75px;
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 10px;
 }
 
 .weather-icon-div{

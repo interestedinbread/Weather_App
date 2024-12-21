@@ -40,6 +40,7 @@ export const getForecast = (data) => {
   const descriptionData = data.list[0].weather[0].description;
   const temperatureData = parseInt(data.list[0].main.temp);
   const icon = data.list[0].weather[0].icon;
+  const id = data.list[0].weather[0].id;
   const iconUrl = `http://openweathermap.org/img/wn/${icon}@2x.png`;
 
   // create object for today's weather
@@ -50,15 +51,17 @@ export const getForecast = (data) => {
     date: date,
     desc: descriptionData,
     temp: temperatureData,
-    icon: iconUrl
+    icon: iconUrl,
+    id: id
   };
+
+  console.log(todaysWeather);
 
   // push today's weather object to forecast arr
   forecastArr.push(todaysWeather);
 
   // get dates for 5 day forecast
   const dateArr = extractDates(data.list);
-  console.log(dateArr);
 
   // this line converts the 40 entry list into 5. One for each day of the forecast. This will be an imperfect forecast starting point to refine later.
   const fiveDayWeather = data.list.filter(
@@ -73,6 +76,7 @@ export const getForecast = (data) => {
     const temperature = parseInt(obj.main.temp);
     const description = obj.weather[0].description;
     const icon = `http://openweathermap.org/img/wn/${obj.weather[0].icon}@2x.png`;
+    const id = obj.weather[0].id;
     
 
     // create object for each day
@@ -83,9 +87,10 @@ export const getForecast = (data) => {
       desc: description,
       temp: temperature,
       icon: icon,
+      id: id
     };
 
-    // console.log(forecastObj);
+    console.log(forecastObj);
 
     // push obj to arr
     forecastArr.push(forecastObj);

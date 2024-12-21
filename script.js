@@ -19,6 +19,8 @@ const fetchWeather = async () => {
         }
         const data = await response.json()
 
+        console.log(data)
+
     // pass JSON data to utility function to extract desired forecast data
         getForecast(data)
 
